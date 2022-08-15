@@ -1,6 +1,6 @@
-package com.rntgroup.api;
+package com.rntgroup.event.service.api;
 
-import com.rntgroup.model.EventDto;
+import com.rntgroup.event.service.dto.EventDto;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ public interface EventServiceApi {
 
     EventDto getEventById(Long id);
 
-    EventDto deleteEvent(Long id);
+    void deleteEvent(Long id);
 
     List<EventDto> getAllEvents();
 
