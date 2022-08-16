@@ -12,4 +12,34 @@
 
     <artifactId>event-service-rest</artifactId>
 
+    <dependencies>
+        <!-- Internal -->
+        <dependency>
+            <groupId>com.rntgroup</groupId>
+            <artifactId>event-service-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.rntgroup</groupId>
+            <artifactId>event-service-dto</artifactId>
+        </dependency>
+
+        <!-- External -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-hateoas</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+        </dependency>
+    </dependencies>
+
 </project>
