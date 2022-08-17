@@ -2,6 +2,7 @@ package com.rntgroup.event.service.service;
 
 import com.rntgroup.event.service.api.EventServiceApi;
 import com.rntgroup.event.service.dto.EventDto;
+import com.rntgroup.event.service.exception.NotFoundEventException;
 import com.rntgroup.event.service.repository.EventRepository;
 import com.rntgroup.event.service.mapper.EventMapper;
 import com.rntgroup.event.service.model.Event;
@@ -27,7 +28,7 @@ public class EventService implements EventServiceApi {
     @Override
     public EventDto updateEvent(Long id, EventDto eventDto) {
         if (!eventRepository.existsById(id)) {
-            throw new RuntimeException(String.format("Event with id = %d not exist", id));
+            throw new NotFoundEventException("id", id.toString());
         }
 
         Event updatedEvent = eventMapper.toModel(eventDto.setId(id));
@@ -37,12 +38,13 @@ public class EventService implements EventServiceApi {
     @Override
     public EventDto getEventById(Long id) {
         Event event = eventRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException(String.format("Not found event with id = %d", id)));
+                .orElseThrow(() -> new NotFoundEventException("id", id.toString()));
         return eventMapper.toDto(event);
     }
 
     @Override
     public void deleteEvent(Long id) {
+        eventRepository.findById(id).orElseThrow(() -> new NotFoundEventException("id", id.toString()));
         eventRepository.deleteById(id);
     }
 
