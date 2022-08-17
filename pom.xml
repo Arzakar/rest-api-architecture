@@ -31,6 +31,8 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
 
+        <start-class>com.rntgroup.event.service.EventApplication</start-class>
+
         <spring-boot.version>2.7.1</spring-boot.version>
 
         <liquibase.version>4.10.0</liquibase.version>
@@ -109,6 +111,21 @@
     <build>
         <pluginManagement>
             <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <configuration>
+                        <mainClass>com.rntgroup.event.service.EventApplication</mainClass>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>repackage</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>

@@ -11,6 +11,7 @@
     </parent>
 
     <artifactId>event-service-impl</artifactId>
+    <packaging>jar</packaging>
 
     <dependencies>
         <!-- Internal -->

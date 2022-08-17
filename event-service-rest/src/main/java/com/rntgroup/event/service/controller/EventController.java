@@ -66,7 +66,7 @@ public class EventController implements EventResource {
 
     public ResponseEntity<EventResponseDto> updateEvent(@PathVariable("id") Long id,
                                                         @RequestBody EventRequestDto eventRequestDto) {
-        EventDto updatedEvent = eventServiceApi.updateEvent(id, eventRequestMapper.toDto(eventRequestDto));
+        eventServiceApi.updateEvent(id, eventRequestMapper.toDto(eventRequestDto));
 
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
